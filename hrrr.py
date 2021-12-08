@@ -432,7 +432,7 @@ class HRRRANL:
     ### Inputs: (either is optional, but at least one is required)
     ###   name=, string, optional, name of variable to retrieve
     ###   level=, integer, optional, level of variable to retrieve
-    ###   mn=, integer, optional, grib message number. Name or level overrides this. Only works with value=True.
+    ###   mn=, integer, optional, grib message number. Name or level overrides this. Only works with values=True.
     ###   values=, boolean, optional, if only one message whether to return the values
     ###     instead of the full message. Defaults to True.
     ###   period, tuple of date objects, optional, start and end times of desired analysis
@@ -454,7 +454,7 @@ class HRRRANL:
             tend = period[1]
 
         #Ensure the period is in increasing order
-        if (tstart >= tend):
+        if (tstart > tend):
             raise ValueError("Given period must be in increasing order!")
 
         #Check that period is within analysis period
